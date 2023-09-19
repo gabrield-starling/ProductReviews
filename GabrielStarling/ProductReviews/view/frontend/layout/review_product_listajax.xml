@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <referenceContainer name="root">
+        <referenceBlock name="product.info.product_additional_data">
+            <action method="setTemplate" ifconfig="catalog/review/enabled">
+                <argument name="template" xsi:type="string">
+                    GabrielStarling_ProductReviews::product/view/list.phtml
+                </argument>
+            </action>
+            <block class="GabrielStarling\ProductReviews\Block\Product\ReviewsList\Toolbar"
+                name="sorter"
+                template="GabrielStarling_ProductReviews::product/view/sorter.phtml"
+                ifconfig="catalog/review/enabled"></block>
+        </referenceBlock>
+        <block class="GabrielStarling\ProductReviews\Block\Product\ReviewsList\Toolbar"
+            name="product_review_list.toolbar" ifconfig="catalog/review/enabled">
+            <arguments>
+                <argument name="show_per_page" xsi:type="boolean">false</argument>
+                <argument name="show_amounts" xsi:type="boolean">false</argument>
+            </arguments>
+        </block>
+    </referenceContainer>
+</layout>
